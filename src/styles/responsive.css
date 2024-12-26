@@ -43,6 +43,10 @@ body.menuopen .verticle-navigation{
 }
 body.menuopen .header .logout{
     display: block;
+    padding: 0 20px 0 40px;
+}
+.header .logout span.text{
+    display: none;
 }
 body.menuopen .username{
     display: block;
@@ -86,11 +90,22 @@ body.menuopen .menuclose-bar{
     overflow-x: auto;
     white-space: nowrap;
 }
-.breadcrumb{
-    padding-right: 15px;
-    padding-left: 15px;
-}
 .field .checkbox label span{
     background: url(/checkbox-plain.svg) top 3px left no-repeat;
+}
+.tabular li{
+    margin-right: 40px;
+}
+.breadcrumb li{
+    line-height: 34px;
+}
+.project-detail .image{
+    margin-top: -20px;
+}
+.popup-overlay .resu .left{
+    padding-left: 0;
+}
+.popup-overlay .resu .right{
+    padding-right: 0;
 }
 }

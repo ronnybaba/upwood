@@ -56,14 +56,14 @@ export default function BuyShare({config, close} : BuyProps) {
         <div className="space-30"></div>
         <div className="field">
           <label><span>Investment amount <span className="fr">Balance - 581 EUROe</span></span></label>
-          <input className="textField error" />
+          <input className="textField error center" />
           <p className="text-align-center error">Your wallet balance is not sufficient to buy shares. Please add funds to your wallet.</p>
         </div>
         <div className="resu">
-          <div className="col-m-full col-mr-bottom-20 fl">
+          <div className="left col-m-full col-mr-bottom-20 fl">
           Get shares : <span>6 Share</span>
           </div>
-          <div className="col-m-full fr">
+          <div className="right col-m-full fr">
           Total payment : <span>648 EUROe</span>
           </div>
           <div className="clr"></div>

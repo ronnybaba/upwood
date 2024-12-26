@@ -54,13 +54,16 @@ export default function ActiveProjects() {
   ];
   return (
     <>
-      <div className="username fr"><span>J</span>John Carter</div>
+      
       <div className="clr"></div>
       <div className="projects">
         <div className="container">
           <div className="container-in">
             <div className="col-12">
-              <h1>Active projects</h1>
+              <h1>Active projects
+                <div className="username fr"><span>J</span>John Carter</div>
+              </h1>
+              
             </div>
           </div>
         </div>

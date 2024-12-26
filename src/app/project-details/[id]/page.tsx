@@ -103,10 +103,14 @@ export default function ProjectDetails() {
     }
   return (
     <>
+      
+      
+      
+      <div className="project-detail">
+      <div className="fl"><Breadcrumb data={breadcrumb} /></div>
       <div className="username fr"><span>J</span>John Carter</div>
       <div className="clr"></div>
-      <Breadcrumb data={breadcrumb} />
-      <div className="project-detail">
+        <div className="space-30"></div>
         <div className="image">
           <img src={data.image} />
           <div className="caption">{data.image_label}</div>

@@ -87,7 +87,7 @@ export default function Header() {
             height={24}
             priority
           />
-          Logout
+          <span className="text">Logout</span>
       </span>
       
     </div>

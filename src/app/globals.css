@@ -50,6 +50,9 @@ body{
   font-weight: 600;
   font-size: 18px;
 }
+.field .textField.center{
+  text-align: center;
+}
 .field .textField.error{
   border:1px solid rgba(255, 0, 0, 1)
 }
@@ -129,7 +132,6 @@ body{
   opacity: .5;
   line-height: 40px;
   padding-left: 50px;
-  margin-right: 20px;
 }
 .username span{
   width: 40px;
@@ -173,9 +175,10 @@ body{
   list-style: none;
   display: inline-block;
   line-height: 40px;
-  margin-right: 40px;
   position: relative;
   cursor: pointer;
+  min-width: 25%;
+  text-align: center;
 }
 .tabular li.active{
   color: rgba(15, 180, 4, 1);
