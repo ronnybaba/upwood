@@ -2,7 +2,14 @@
 import { useEffect, useState } from "react";
 import Image from "next/image";
 import VerticleNav from "@/components/verticleNav";
+import { usePathname, useRouter } from "next/navigation";
 export default function Header() {
+  const pathname = usePathname();
+  const header_not_need =
+    pathname === "/login" ||
+    pathname === "/forgot-password" ||
+    pathname === "/register";
+
   const navigationData = [
     {
       "name" : "ACTIVE PROJECTS",
@@ -61,6 +68,9 @@ export default function Header() {
     document.body.classList.remove("menuopen");
   };
   return (
+    
+    <div>
+      {!header_not_need ? 
     <>
     <div className="header">
       <div className="top">
@@ -91,7 +101,9 @@ export default function Header() {
       </span>
       
     </div>
-    <VerticleNav data={navigationData} closeMenu={closeMenu} />
-    </>
+    <VerticleNav data={navigationData} closeMenu={closeMenu} /></>
+    : <></>}
+    </div>
+    
   );
 }

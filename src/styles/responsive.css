@@ -1,3 +1,11 @@
+@media only screen and (max-width: 1919px) {
+    .auth-work{
+        padding: 0 60px;
+    }
+    .authtextslider{
+        padding: 0 60px 0 60px;
+    }
+}
 @media only screen and (max-width: 767px) {
 body.menuopen{
     position: fixed;
@@ -107,5 +115,13 @@ body.menuopen .menuclose-bar{
 }
 .popup-overlay .resu .right{
     padding-right: 0;
+}
+.authtextslider{
+    display: none;
+}
+.auth-work{
+    position: static;
+    width: 100%;
+    padding:50px 15px 0;
 }
 }

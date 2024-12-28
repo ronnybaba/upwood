@@ -6,6 +6,7 @@ import "@/styles/verticleNavigation.css";
 import "@/styles/buyShare.css";
 import "@/styles/projectCard.css";
 import "@/styles/projectDetail.css";
+import "@/styles/authtextslider.css";
 import "@/styles/responsive.css";
 
 import Header from "@/components/header";

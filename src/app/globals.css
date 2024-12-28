@@ -22,10 +22,19 @@ body{
 .text-align-center{
   text-align: center;
 }
+.text-align-right{
+  text-align: right;
+}
 .error{
   font-size: 12px;
   color: rgba(255, 0, 0, 1);
   padding: 10px 0;
+}
+.field.mrbottom{
+  margin-bottom: 30px;
+}
+.field .lab{
+  margin-bottom: 8px;
 }
 .field label{
   display: inline-block;
@@ -46,9 +55,16 @@ body{
   border: 0;
   border-radius: 12px;
   box-shadow: 0px 0px 3.8px 0px rgba(0, 0, 0, 0.14);
-  padding: 0 15px;
+  padding: 0 20px;
   font-weight: 600;
   font-size: 18px;
+}
+.field .textField.style2{
+  height: 44px;
+  font-size: 16px;
+  font-weight: 400;
+  border: 1px solid rgba(107, 107, 107, 1);
+  border-radius:16px
 }
 .field .textField.center{
   text-align: center;
@@ -69,7 +85,7 @@ body{
   background: url(/checkbox-plain.svg) top 3px left no-repeat;
 }
 .field .checkbox input:checked + label span {
-  background: url(/checkbox-checked.svg) top 8px left no-repeat;
+  background: url(/checkbox-checked.svg) top 3px left no-repeat;
 }
 .button{
   line-height: 44px;
@@ -82,11 +98,31 @@ body{
   cursor: pointer;
   color: initial;
   text-decoration: none;
+  color: initial;
+}
+.button.disabled{
+  cursor: not-allowed;
 }
 .button.active{
   background: rgba(15, 180, 4, 1);
   box-shadow: 2px 2px 4px 0px rgba(15, 180, 4, 0.25);
   color: #fff;
+}
+.button.active.disabled{
+  background: #9ad78a;
+}
+.button.style2{
+  border-radius: 16px;
+}
+.button.style3{
+  color: rgba(15, 180, 4, 1);
+  border:1px solid rgba(15, 180, 4, 1);
+  box-shadow: 2px 2px 4px 0px rgba(15, 180, 4, 0.25);
+}
+.button img{
+  margin-right: 10px;
+  position: relative;
+  top: 2px;
 }
 .space-20{
   height: 20px;
@@ -215,4 +251,98 @@ body{
 .multiimage .im img{
   width: 100%;
   height: auto;
+}
+
+.divider{
+  margin: 30px 0;
+  width: 100%;
+  height: 2px;
+  background:linear-gradient(100.05deg, #00AA81 0%, #0EB400 100%);
+}
+.dividerwhite{
+  margin-bottom: 80px;
+  width: 100%;
+  height: 2px;
+  background:#fff;
+}
+
+.auth-work {
+  position: fixed;
+  top: 0;
+  right: 0;
+  width: 50%;
+  height: 100%;
+  padding: 0 230px;
+  display: flex; /* Enables Flexbox */
+  flex-direction: column; /* Arrange items vertically */
+  justify-content: center; /* Centers items vertically */
+}
+
+.auth-work .logo{
+  text-align: center;
+}
+.auth-work .forgotlink{
+  text-align: center;
+  padding-top: 20px;
+}
+.auth-work .forgotlink a{
+  text-decoration: none;
+  color: initial;
+  font-weight: 500;
+  color: rgba(107, 107, 107, 1);
+}
+.auth-work .heading{
+  font-size: 24px;
+  font-weight: 600;
+  margin-bottom: 25px;
+}
+.auth-work .center-text{
+  text-align: center;
+  font-size: 18px;
+  line-height: 30px;
+  color: rgba(51, 51, 51, 1);
+}
+.auth-work .center-text.bold{
+  font-weight: 600;
+}
+.auth-work .center-text.big{
+  font-size: 20px;
+  line-height: 34px;
+}
+.auth-work .center-text.biger{
+  font-size: 24px;
+}
+.auth-work .image{
+  text-align: center;
+  padding-bottom: 30px;
+}
+.auth-work .center-text a{
+  color: rgba(0, 147, 0, 1);
+  text-decoration: none;
+}
+.auth-work .left-text{
+  font-size: 18px;
+  line-height: 30px;
+  color: rgba(51, 51, 51, 1);
+}
+.auth-work .or{
+  margin-top: -15px;
+  margin-bottom: 15px;
+  text-align: center;
+  position: relative;
+}
+.auth-work .or:before{
+  width: 100%;
+  height: 1px;
+  background:rgba(107, 107, 107, 1);
+  content: "";
+  position: absolute;
+  top: 7px;
+  left: 0;
+  z-index: -1;
+}
+.auth-work .or span{
+  background: #fff;
+  padding:0 20px;
+  display: inline-block;
 }
