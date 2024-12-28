@@ -7,6 +7,12 @@
     }
 }
 @media only screen and (max-width: 767px) {
+.hideonmobile{
+    display: none;
+}   
+.showonmobile{
+    display: block;
+} 
 body.menuopen{
     position: fixed;
     width: 100%;
@@ -93,6 +99,10 @@ body.menuopen .menuclose-bar{
     padding-right: 15px;
     padding-left: 15px;
 }
+.news-detail{
+    padding-right: 15px;
+    padding-left: 15px;
+}
 .tabular{
     overflow-y: hidden;
     overflow-x: auto;
@@ -123,5 +133,15 @@ body.menuopen .menuclose-bar{
     position: static;
     width: 100%;
     padding:50px 15px 0;
+}
+.news-detail .news-name{
+    line-height: 34px;
+    margin-bottom: 0;
+}
+.text-align-left-mobile{
+    text-align: left;
+}
+.news-card .news-name {
+    line-height: 34px;
 }
 }

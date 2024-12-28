@@ -7,6 +7,10 @@ import "@/styles/buyShare.css";
 import "@/styles/projectCard.css";
 import "@/styles/projectDetail.css";
 import "@/styles/authtextslider.css";
+import "@/styles/support.css";
+import "@/styles/news.css";
+import "@/styles/newsCard.css";
+import "@/styles/newsDetail.css";
 import "@/styles/responsive.css";
 
 import Header from "@/components/header";
