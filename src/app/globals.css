@@ -365,3 +365,47 @@ body{
   padding:0 20px;
   display: inline-block;
 }
+
+
+
+.table{
+  padding: 20px 0;
+}
+.table table{
+  width: 100%;
+  text-align: left;
+}
+.table th{
+  border-bottom: 1px solid rgba(215, 219, 208, 1);
+  background: rgba(252, 252, 252, 1);
+  font-size: 14px;
+  padding: 15px 0 15px 20px;
+  color: rgba(107, 107, 107, 1);
+}
+.table td{
+  border-bottom: 1px solid rgba(0, 0, 0, 0.06);
+  font-size: 14px;
+  padding: 15px 0 15px 20px;
+}
+.pagignation{
+  text-align: right;
+}
+.pagignation li{
+  list-style-type: none;
+  display: inline-block;
+  width: 40px;
+  height: 40px;
+  border: 1px solid transparent;
+  font-size: 16px;
+  text-align: center;
+  line-height: 38px;
+  cursor: pointer;
+}
+.pagignation li.disabled{
+  cursor: not-allowed;
+  opacity: .2;
+}
+.pagignation li.active{
+  border: 1px solid rgba(15, 180, 4, 1);
+  color: rgba(15, 180, 4, 1);
+}

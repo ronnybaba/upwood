@@ -11,6 +11,7 @@ import "@/styles/support.css";
 import "@/styles/news.css";
 import "@/styles/newsCard.css";
 import "@/styles/newsDetail.css";
+import "@/styles/wallet.css";
 import "@/styles/responsive.css";
 
 import Header from "@/components/header";

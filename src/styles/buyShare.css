@@ -84,3 +84,24 @@
 .popup-overlay .message span{
     color: rgba(0, 147, 0, 1);
 }
+
+
+.cl-area .cl-in{
+    padding: 0 20px;
+    text-align: center;
+    padding-top: 20px;
+}
+.cl-area .cl-in .tag{
+    font-weight: 500;
+    margin-bottom: 20px;
+}
+.cl-area .cl-in .display{
+    font-weight: 500;
+    font-size: 28px;
+    margin-bottom: 20px;
+    color: rgba(0, 147, 0, 1);
+}
+.cl-area .auto{
+    margin: auto;
+    float: none;
+}

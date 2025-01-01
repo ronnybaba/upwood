@@ -1,18 +1,6 @@
 "use client";
-import { useEffect, useState } from "react";
 import Breadcrumb from "@/components/breadCrumb";
-import BuyShare from "@/components/buyShare";
-import Button from "@/components/button";
-import MultiImageLayout from "@/components/multiImage";
-import SingleImageLayout from "@/components/singleImage";
 export default function NewsDetails() {
-  const [buyShare, setBuyShare] = useState(false);
-  const openBuyShare = () => {
-    setBuyShare(true);
-  };
-  const closeBuyShare = () => {
-    setBuyShare(false);
-  };
   const data = {
       id: "1516",
       image : "/Photo2.jpg",

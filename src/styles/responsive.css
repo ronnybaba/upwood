@@ -74,6 +74,9 @@ body.menuopen .menuclose-bar{
 .col-m-full{
     width: 100% !important;
 }
+.col-mr-bottom-30{
+    margin-bottom: 30px;
+}
 .col-mr-bottom-20{
     margin-bottom: 20px;
 }
@@ -143,5 +146,30 @@ body.menuopen .menuclose-bar{
 }
 .news-card .news-name {
     line-height: 34px;
+}
+.pagignation{
+    text-align: center;
+    padding-top: 20px;
+}
+.table{
+    overflow-y: scroll;
+    padding: 0;
+}
+.table th {
+    white-space: nowrap;
+}
+.table td{
+    white-space: nowrap;
+}
+.walletmanagement .guides{
+    padding-top: 30px;
+}
+.walletmanagement .guides.margin{
+    margin: 0;
+    display: block;
+    
+}
+.cl-area .cl-in{
+    padding:20px 15%;
 }
 }
