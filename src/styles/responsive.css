@@ -172,4 +172,10 @@ body.menuopen .menuclose-bar{
 .cl-area .cl-in{
     padding:20px 15%;
 }
+.chart{
+    overflow-x: scroll;
+}
+.chart .chart-in{
+    width: 1300px;
+}
 }
