@@ -17,9 +17,8 @@ export default function Button({ text, link, active, style, disabled, icon, call
         <Image
         src={icon}
         alt="Description of the image"
-        layout="responsive"
-        width={100}
-        height={100}
+        width={14}
+        height={14}
       />
        : null}{text}</span>
     :
@@ -27,9 +26,8 @@ export default function Button({ text, link, active, style, disabled, icon, call
         <Image
         src={icon}
         alt="Description of the image"
-        layout="responsive"
-        width={100}
-        height={100}
+        width={14}
+        height={14}
       /> : null} {text}</Link>
     }
     </>

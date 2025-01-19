@@ -1,5 +1,4 @@
-"use client";
-import { useState, useEffect } from "react";
+import { useState, useEffect, useCallback } from "react";
 import Button from "./button";
 import Image from 'next/image';
 
@@ -21,34 +20,32 @@ interface ClaimPopupProps {
 export default function ClaimPopup({ config, close }: ClaimPopupProps) {
   const [thankyou, setThankYou] = useState(false);
 
+  // Memoized handler for key down to respect the close function stability
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape" && close) {
+      close();
+    }
+  }, [close]);
+
   // Show the 'Thank you' message
   const showThankyou = () => {
     setThankYou(true);
   };
 
   // Close modal when overlay is clicked
-  const handleOverlayClick = (e: React.MouseEvent) => {
-    e.stopPropagation(); // Prevent click event from bubbling up if clicking inside modal content
-    if (close) {
-      close(); // Close the modal
-    }
-  };
-
-  // Close modal when Escape key is pressed
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && close) {
+  const handleOverlayClick = (e: React.MouseEvent<HTMLDivElement, MouseEvent>) => {
+    if (e.target === e.currentTarget && close) {  // Ensure that the modal only closes if the overlay (not content) is clicked
       close();
     }
   };
 
-  // Add event listener for Escape key press when the modal is mounted
+  // Add and clean up the event listener
   useEffect(() => {
     document.addEventListener("keydown", handleKeyDown);
-    // Cleanup the event listener when the component unmounts
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return (
     <div className="popup-overlay" onClick={handleOverlayClick}>

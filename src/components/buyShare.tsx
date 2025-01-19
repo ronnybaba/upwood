@@ -1,6 +1,5 @@
-"use client";
+import { useState, useEffect, useCallback } from "react";
 import Image from "next/image";
-import { useState, useEffect } from "react";
 import Button from "./button";
 
 interface Item {
@@ -8,9 +7,9 @@ interface Item {
   title: string;
   share_price: string;
   share_available: string;
-  balance:string
-  share:string
-  total_payment:string
+  balance: string;
+  share: string;
+  total_payment: string;
 }
 
 interface BuyProps {
@@ -25,18 +24,18 @@ export default function BuyShare({ config, close }: BuyProps) {
     setThankYou(true);
   };
 
+  // Memoized handler for key down to manage closure dependencies
+  const handleKeyDown = useCallback((e: KeyboardEvent) => {
+    if (e.key === "Escape" && close) {
+      close();
+    }
+  }, [close]);
+
   // Close modal when overlay is clicked
   const handleOverlayClick = (e: React.MouseEvent) => {
     e.stopPropagation(); // Prevent click event from bubbling up if clicking inside modal content
     if (close) {
       close(); // Close the modal
-    }
-  };
-
-  // Close modal when Escape key is pressed
-  const handleKeyDown = (e: KeyboardEvent) => {
-    if (e.key === "Escape" && close) {
-      close();
     }
   };
 
@@ -47,7 +46,7 @@ export default function BuyShare({ config, close }: BuyProps) {
     return () => {
       document.removeEventListener("keydown", handleKeyDown);
     };
-  }, []);
+  }, [handleKeyDown]);
 
   return (
     <div className="popup-overlay" onClick={handleOverlayClick}>

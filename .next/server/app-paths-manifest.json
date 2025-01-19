@@ -1,14 +1,4 @@
 {
-  "/_not-found/page": "app/_not-found/page.js",
   "/favicon.ico/route": "app/favicon.ico/route.js",
-  "/active-projects/page": "app/active-projects/page.js",
-  "/news-updates/page": "app/news-updates/page.js",
-  "/register/page": "app/register/page.js",
-  "/support/page": "app/support/page.js",
-  "/investment-portfolio/page": "app/investment-portfolio/page.js",
-  "/news-details/page": "app/news-details/page.js",
-  "/wallet-management/page": "app/wallet-management/page.js",
-  "/page": "app/page.js",
-  "/active-project-details/page": "app/active-project-details/page.js",
   "/forgot-password/page": "app/forgot-password/page.js"
 }
