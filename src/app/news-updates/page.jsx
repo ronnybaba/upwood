@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import NewsCard from '@/components/newsCard';
-export default function NewsUpdates() {
+import AuthGuard from "@/components/AuthGuard";
+import Username from '@/components/Username';
+function NewsUpdates() {
   const [showAll, setShowAll] = useState(false);
   const links = [
     { title: "Update: 1.13", description: "Proactively incubate innovative processes for high-payoff architectures. Globally benchmark flexible.", link: "" },
@@ -33,6 +35,10 @@ export default function NewsUpdates() {
       short : "Following recent changes in reduction of Euribor % by European Central Bank construction industry experience upward trend which leads to increased demand for timber. Current, trajectory..."
     }
   ];
+  const planned_maintainence = {
+    date : "22.10.24",
+    text : "Next planned platform maintenance is going to happen at 22.07.2024 22 : 00 (CET), please be aware that there may be short time frame when platform may show service maintenance. We are constantly working on platform improvements, updates and new features to provide better investment experience. Your funds are in your digital wallet, thereby, always safe!"
+  }
   const displayedLinks = showAll ? links : links.slice(0, 3);
   return (
     <>
@@ -42,7 +48,7 @@ export default function NewsUpdates() {
           <div className="container-in">
             <div className="col-12">
               <h1>News & updates
-                <div className="username fr"><span>J</span>John Carter</div>
+                <Username />
               </h1>
             </div>
           </div>
@@ -52,7 +58,7 @@ export default function NewsUpdates() {
           <div className="container">
             <div className="container-in">
               <div className="col-4 fr text-align-right col-m-full col-mr-bottom-10 text-align-left-mobile">
-                22.10.24
+                {planned_maintainence.date}
               </div>
               <div className="col-8 fl col-m-full">
                 <div className="heading">Planned platform maintenance</div>
@@ -61,8 +67,7 @@ export default function NewsUpdates() {
             </div>
             <div className="container-in">
               <div className="col-12">
-                
-                <div className="content">Next planned platform maintenance is going to happen at 22.07.2024 22 : 00 (CET), please be aware that there may be short time frame when platform may show service maintenance. We are constantly working on platform improvements, updates and new features to provide better investment experience. Your funds are in your digital wallet, thereby, always safe!</div>
+                <div className="content">{planned_maintainence.text}</div>
               </div>
             </div>
           </div>
@@ -122,5 +127,12 @@ export default function NewsUpdates() {
         </div>
       </div>
     </>
+  );
+}
+export default function NewsUpdatesPage() {
+  return (
+    <AuthGuard>
+      <NewsUpdates />
+    </AuthGuard>
   );
 }

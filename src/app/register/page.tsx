@@ -1,10 +1,10 @@
 "use client"
-import { useEffect, useState } from "react";
-import Link from 'next/link';
+import { useState } from "react";
 import Image from "next/image";
 import AuthTextSlider from "@/components/authTextSlider";
 import Button from "@/components/button";
-export default function Register() {
+import LoginGuard from "@/components/LoginGuard";
+function Register() {
   const [registerSuccess, setregisterSuccess] = useState(false);
   const sliderdata = [
       {
@@ -37,7 +37,15 @@ export default function Register() {
 
         {registerSuccess ?
         <div>
-          <div className="image"><img src="/Group-1000003068.svg" /></div>
+          <div className="image">
+          <Image
+            src="/Group-1000003068.svg"
+            alt="Description of the image"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+          </div>
           <div className="center-text biger bold">Let’s verify your identity</div>
           <div className="space-30"></div>
           <div className="center-text big">To finish your registration you need to create a digital wallet<br/>and verify your identity in few simple steps.</div>
@@ -71,7 +79,7 @@ export default function Register() {
             </div>
           </div>
           <div className="field mrbottom">
-              <Button style={'style3'} text ={'CONTINUE WITH DIGITAL WALLET CREATION'} link={''} active={false}   />
+              <Button style={'style3'} text ={'CONTINUE WITH DIGITAL WALLET CREATION'} link={''} active={false} call={() => setregisterSuccess(true)}   />
           </div>
           <div className="or"><span>OR</span></div>
           <div className="field mrbottom">
@@ -82,5 +90,12 @@ export default function Register() {
         }
       </div>
     </>
+  );
+}
+export default function RegisterPage() {
+  return (
+    <LoginGuard>
+      <Register />
+    </LoginGuard>
   );
 }

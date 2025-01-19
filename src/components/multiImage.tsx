@@ -7,6 +7,7 @@ interface Item {
 interface MultiImageProps {
   data :Item
 }
+import Image from 'next/image';
 export default function MultiImageLayout({ data }:MultiImageProps ) {
   return (
     <div className="multiimage">
@@ -18,7 +19,13 @@ export default function MultiImageLayout({ data }:MultiImageProps ) {
             {data.images.map((im, index) => (
               <div className="col-3 col-m-full col-mr-bottom-10 fl" key={index}>
                 <div className="im">
-                  <img src={im} />
+                  <Image
+                    src={im}
+                    alt="Description of the image"
+                    layout="responsive"
+                    width={100}
+                    height={100}
+                  />
                 </div>
               </div>
             ))}

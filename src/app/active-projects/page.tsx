@@ -1,7 +1,7 @@
 import ProjectCard from "@/components/projectCard";
-import Image from "next/image";
-
-export default function ActiveProjects() {
+import AuthGuard from "@/components/AuthGuard";
+import Username from "@/components/Username";
+function ActiveProjects() {
   const data = [
     {
       id: "1516",
@@ -60,9 +60,7 @@ export default function ActiveProjects() {
         <div className="container">
           <div className="container-in">
             <div className="col-12">
-              <h1>Active projects
-                <div className="username fr"><span>J</span>John Carter</div>
-              </h1>
+              <h1>Active projects <Username /></h1>
               
             </div>
           </div>
@@ -80,5 +78,12 @@ export default function ActiveProjects() {
         </div>
       </div>
     </>
+  );
+}
+export default function ActiveProjectsPage() {
+  return (
+    <AuthGuard>
+      <ActiveProjects />
+    </AuthGuard>
   );
 }

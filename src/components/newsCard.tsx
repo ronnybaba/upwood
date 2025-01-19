@@ -9,6 +9,7 @@ interface ItemProps {
     short : string
   }
 }
+import Image from 'next/image';
 export default function NewsCard({item} : ItemProps) {
   return (
     <>
@@ -17,7 +18,13 @@ export default function NewsCard({item} : ItemProps) {
         <div className="container-in">
           <div className="col-12">
             <div className="image">
-              <img src={item.image} />
+                <Image
+                  src={item.image}
+                  alt="Description of the image"
+                  layout="responsive"
+                  width={100}
+                  height={100}
+                />
               <div className="caption">{item.image_label}</div>
             </div>
           </div>
@@ -32,7 +39,7 @@ export default function NewsCard({item} : ItemProps) {
       </div>
       <div className="container-in text-align-right">
         <div className="col-12">
-          <Link href={`/news-details/${item.id}`} className="read">READ FULL ARTICLE</Link>
+          <Link href={`/news-details/#${item.id}`} className="read">READ FULL ARTICLE</Link>
         </div>
       </div>
       </div>

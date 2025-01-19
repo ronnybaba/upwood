@@ -1,5 +1,5 @@
 "use client";
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import Button from "@/components/button";
 import BuyShare from "@/components/buyShare";
 interface KeyItem {
@@ -9,7 +9,7 @@ interface KeyItem {
 interface ItemProps {
   item : {
     id:string,
-    comingsoon : Boolean,
+    comingsoon : boolean,
     image : string,
     image_label:string,
     title : string,
@@ -19,6 +19,7 @@ interface ItemProps {
     share_available : string
   }
 }
+import Image from 'next/image';
 export default function ProjectCard({item} : ItemProps) {
   const [buyShare, setBuyShare] = useState(false);
   const openBuyShare = () => {
@@ -31,7 +32,10 @@ export default function ProjectCard({item} : ItemProps) {
     heading : "Buy shares",
     title : item.title,
     share_price : item.share_price,
-    share_available : item.share_available
+    share_available : item.share_available,
+    balance : '1500',
+    share : '100',
+    total_payment : '3000'
   }
   return (
     <>
@@ -40,7 +44,13 @@ export default function ProjectCard({item} : ItemProps) {
         <div className="container-in">
           <div className="col-12">
             <div className="image">
-              <img src={item.image} />
+            <Image
+                  src={item.image}
+                  alt="Description of the image"
+                  layout="responsive"
+                  width={100}
+                  height={100}
+              />
               <div className="caption">{item.comingsoon?'coming soon':item.image_label}</div>
             </div>
           </div>
@@ -64,7 +74,7 @@ export default function ProjectCard({item} : ItemProps) {
       </div>
       <div className="container-in">
         <div className="col-8 col-m-full col-mr-bottom-20 fl">
-          <Button text={'VIEW DETAILS'} link={`/project-details/${item.id}`} active={false}   />
+          <Button text={'VIEW DETAILS'} link={`/active-project-details/#${item.id}`} active={false}   />
         </div>
         <div className="col-4 col-m-full fl">
           <Button text ={'INVEST'} link={''} active={true} call={openBuyShare}  />

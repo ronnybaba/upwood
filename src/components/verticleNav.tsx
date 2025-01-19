@@ -14,14 +14,24 @@ interface VerticleNavProps {
 }
 export default function VerticleNav({ data, closeMenu } : VerticleNavProps ) {
   const pathname = usePathname();
+  const substr = pathname.split('/')
   return (
     <div className='verticle-navigation'>
       <ul>
           {data.map((item, index) => (
-            <li key={index} className={pathname === item.url ? 'active' : ''} onClick={closeMenu}>
+            <li key={index} className={`
+            ${(pathname === item.url) || 
+            (substr[1] === 'active-project-details' && item.url === '/active-projects') || 
+            (substr[1] === 'news-details' && item.url === '/news-updates')
+            ? 'active' : ''}`}
+            onClick={closeMenu}>
               <Image
                 className='navigation-icon'
-                src={pathname === item.url ? item['icon-active'] : item['icon-normal']}
+                src={
+                  (pathname === item.url) ||
+                  (substr[1] === 'active-project-details' && item.url === '/active-projects') || 
+                  (substr[1] === 'news-details' && item.url === '/news-updates')
+                   ? item['icon-active'] : item['icon-normal']}
                 alt=""
                 width={24}
                 height={24}

@@ -16,6 +16,7 @@ interface ItemProps {
     share_available : string
   }
 }
+import Image from 'next/image';
 export default function ProjectCard2({item} : ItemProps) {
   return (
     <>
@@ -24,7 +25,13 @@ export default function ProjectCard2({item} : ItemProps) {
         <div className="container-in">
           <div className="col-12">
             <div className="image">
-              <img src={item.image} />
+              <Image
+                  src={item.image}
+                  alt="Description of the image"
+                  layout="responsive"
+                  width={100}
+                  height={100}
+              />
               <div className="caption">{item.image_label}</div>
             </div>
           </div>

@@ -7,6 +7,7 @@ interface Item {
 interface SingleImageProps {
   data :Item
 }
+import Image from 'next/image';
 export default function SingleImageLayout({ data }:SingleImageProps ) {
   return (
     <div className="multiimage">
@@ -17,7 +18,13 @@ export default function SingleImageLayout({ data }:SingleImageProps ) {
           <div className="container-in">
             <div className="col-12">
                 <div className="im">
-                  <img src={data.image} />
+                <Image
+                  src={data.image}
+                  alt="Description of the image"
+                  layout="responsive"
+                  width={100}
+                  height={100}
+                />
                 </div>
             </div>
           </div>

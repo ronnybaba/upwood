@@ -1,12 +1,11 @@
 "use client";
-import { useEffect, useState } from "react";
 import Image from "next/image";
 import VerticleNav from "@/components/verticleNav";
-import { usePathname, useRouter } from "next/navigation";
+import { usePathname } from "next/navigation";
 export default function Header() {
   const pathname = usePathname();
   const header_not_need =
-    pathname === "/login" ||
+    pathname === "/" ||
     pathname === "/forgot-password" ||
     pathname === "/register";
 
@@ -83,8 +82,20 @@ export default function Header() {
           priority
         />
         </div>
-        <img src="/Menu.svg" className="menuopen-bar fr" onClick={toggleMenu} />
-        <img src="/Close-menu.svg" className="menuclose-bar fr" onClick={toggleMenu} />
+        <Image
+          src="/Menu.svg"
+          alt="Description of the image"
+          width={40}
+          height={40}
+          className="menuopen-bar fr" onClick={toggleMenu}
+        />
+        <Image
+          src="/Close-menu.svg"
+          alt="Description of the image"
+          width={40}
+          height={40}
+          className="menuclose-bar fr" onClick={toggleMenu}
+        />
         <div className="clr"></div>
       </div>
       

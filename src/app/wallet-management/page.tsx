@@ -1,16 +1,16 @@
 "use client"
 import { useState } from 'react';
-import Link from 'next/link';
-import Button from "@/components/button";
 import ProjectCard2 from '@/components/projectCard2';
 import ClaimPopup from '@/components/ClaimPopup';
-export default function Wallet() {
-  const [carbon_credits, setCarbonCredits] = useState({
+import AuthGuard from "@/components/AuthGuard";
+import Username from '@/components/Username';
+function Wallet() {
+  const carbon_credits = {
     emissions : "15 Co2 TONS",
     value : "750"
-  });
-  const [dividends_details, setDividendsDetails] = useState("150 EUROe")
-  const [etree_details, setEtreeDetails] = useState("1500")
+  };
+  const dividends_details = "150 EUROe";
+  const etree_details = "1500"
   const [carbon_credits_popup, setCarbonCreditsPopup] = useState(false);
   const [dividends_details_popup, setDividendsPopup] = useState(false);
   const [etrees_popup, setEtreesPopup] = useState(false);
@@ -193,7 +193,7 @@ export default function Wallet() {
           <div className="container-in">
             <div className="col-12">
               <h1>Wallet management
-                <div className="username fr"><span>J</span>John Carter</div>
+                <Username />
               </h1>
             </div>
           </div>
@@ -202,7 +202,7 @@ export default function Wallet() {
         <div className="outerboxshadow">
           <div className="container">
             <div className="container-in">
-              <div className="col-8 col-m-full fl">
+              <div className="col-8 fl">
                 <div className="heading">Balance</div>
               </div>
               <div className="col-4 text-align-right fr hideonmobile">
@@ -211,6 +211,14 @@ export default function Wallet() {
                   style={{ cursor: "pointer" }}
                 >
                   WALLET MANAGEMENT GUIDES
+                </span>
+              </div>
+              <div className="col-4 text-align-right fr showonmobile">
+                <span 
+                  className="guides"
+                  style={{ cursor: "pointer" }}
+                >
+                  GUIDES
                 </span>
               </div>
               
@@ -245,15 +253,6 @@ export default function Wallet() {
               <div className="clr"></div>
             </div>
             <div className="space-30"></div>
-            <div className='col-12 showonmobile text-align-center'>
-                <span 
-                  className="guides" 
-                  style={{ cursor: "pointer" }}
-                >
-                  WALLET MANAGEMENT GUIDES
-                </span>
-              </div>
-              <div className="space-20 showonmobile"></div>
           </div>
         </div>
         <div className="space-30"></div>
@@ -348,5 +347,12 @@ export default function Wallet() {
       {dividends_details_popup ? <ClaimPopup config={__dividends_details} close={() => setDividendsPopup(false)} /> : null}
       {etrees_popup ? <ClaimPopup config={__etrees_details} close={() => setEtreesPopup(false)} /> : null}
     </>
+  );
+}
+export default function WalletPage() {
+  return (
+    <AuthGuard>
+      <Wallet />
+    </AuthGuard>
   );
 }

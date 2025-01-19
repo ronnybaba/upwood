@@ -1,10 +1,10 @@
 "use client"
-import { useEffect, useState } from "react";
-import Link from 'next/link';
+import { useState } from "react";
 import Image from "next/image";
 import AuthTextSlider from "@/components/authTextSlider";
 import Button from "@/components/button";
-export default function ForgotPassword() {
+import LoginGuard from "@/components/LoginGuard";
+function ForgotPassword() {
   const [forgotSuccess, setforgotSuccess] = useState(false);
   const whenconfirmbuttonhit = () => {
     setforgotSuccess(true)
@@ -40,13 +40,21 @@ export default function ForgotPassword() {
 
         {forgotSuccess ?
         <div>
-          <div className="image"><img src="/Group-1000003068.svg" /></div>
+          <div className="image">
+          <Image
+            src="/Group-1000003068.svg"
+            alt="Description of the image"
+            layout="responsive"
+            width={100}
+            height={100}
+          />
+          </div>
           <div className="center-text biger bold">Success</div>
           <div className="space-30"></div>
           <div className="center-text">Please check your email<br />
           for create a new password</div>
           <div className="space-30"></div>
-          <div className="center-text big">Can't get email? <a href="">Resubmit</a></div>
+          <div className="center-text big">Can&apos;t get email? <a href="">Resubmit</a></div>
           <div className="space-30"></div>
           <div>
               <Button icon={'/Vector.svg'} text ={'BACK TO LOGIN'} link={'/login'} active={false}  />
@@ -64,7 +72,7 @@ export default function ForgotPassword() {
               <Button style={'style2'} text ={'CONFIRM'} link={''} active={true} call={whenconfirmbuttonhit}  />
           </div>
           <div className="left-text">
-          If your email will be recognized in the system, you will recieve further instructions to reset your password in the email. If you don’t see an email from Upwood, please check your spam folder. If you haven’t recieved e-mail or forgot your e-mail address please contact Upwood support. 
+          If your email will be recognized in the system, you will recieve further instructions to reset your password in the email. If you don&apos;t see an email from Upwood, please check your spam folder. If you haven&apos;t recieved e-mail or forgot your e-mail address please contact Upwood support. 
           </div>
           <div className="space-30"></div>
           <div className="container">
@@ -84,5 +92,12 @@ export default function ForgotPassword() {
         }
       </div>
     </>
+  );
+}
+export default function ForgotPage() {
+  return (
+    <LoginGuard>
+      <ForgotPassword />
+    </LoginGuard>
   );
 }

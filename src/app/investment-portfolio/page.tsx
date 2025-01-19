@@ -1,10 +1,9 @@
 "use client"
-import { useState } from 'react';
-import Link from 'next/link';
-import Button from "@/components/button";
 import ProjectCard2 from '@/components/projectCard2';
 import PortfolioValueChart from '@/components/chart';
-export default function InvestmentPortfolio() {
+import AuthGuard from "@/components/AuthGuard";
+import Username from '@/components/Username';
+function InvestmentPortfolio() {
   const data = [
     {
       id: "1516",
@@ -53,6 +52,13 @@ export default function InvestmentPortfolio() {
       share_available : "400"
     }
   ];
+  const topvalues = {
+    locked_token_value : "99 000 €",
+    portfolio_value : "13 000 €",
+    yearly_portfolio_growth_value : "+1000€",
+    return_investment_value : "8.4%",
+    carbon_tons_value : "5t"
+  }
   return (
     <>
       <div className="clr"></div>
@@ -61,7 +67,7 @@ export default function InvestmentPortfolio() {
           <div className="container-in">
             <div className="col-12">
               <h1>Investment Portfolio
-                <div className="username fr"><span>J</span>John Carter</div>
+                <Username />
               </h1>
             </div>
           </div>
@@ -72,23 +78,23 @@ export default function InvestmentPortfolio() {
             <div className="container-in">
               <div className='col-20-percent fl investmentms col-m-full col-mr-bottom-30'>
                 <div className="tag">Locked token value</div>
-                <div className="value">99 000 €</div>
+                <div className="value">{topvalues.locked_token_value}</div>
               </div>
               <div className='col-20-percent fl investmentms col-m-full col-mr-bottom-30'>
                 <div className="tag">Portfolio value</div>
-                <div className="value">13 000 €</div>
+                <div className="value">{topvalues.portfolio_value}</div>
               </div>
               <div className='col-20-percent fl investmentms col-m-full col-mr-bottom-30'>
                 <div className="tag">Yearly portfolio growth</div>
-                <div className="value">+1000€</div>
+                <div className="value">{topvalues.yearly_portfolio_growth_value}</div>
               </div>
               <div className='col-20-percent fl investmentms col-m-full col-mr-bottom-30'>
                 <div className="tag">Return on investment</div>
-                <div className="value">8.4%</div>
+                <div className="value">{topvalues.return_investment_value}</div>
               </div>
               <div className='col-20-percent fl investmentms col-m-full'>
                 <div className="tag">Carbon tons offset</div>
-                <div className="value">5t</div>
+                <div className="value">{topvalues.carbon_tons_value}</div>
               </div>
               <div className="clr"></div>
             </div>
@@ -137,5 +143,12 @@ export default function InvestmentPortfolio() {
       </div>
       </div>
     </>
+  );
+}
+export default function InvestmentPortfolioPage() {
+  return (
+    <AuthGuard>
+      <InvestmentPortfolio />
+    </AuthGuard>
   );
 }

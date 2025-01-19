@@ -3,7 +3,7 @@ import Link from 'next/link';
 interface ButtonProps {
   text :string,
   link :string,
-  active:Boolean,
+  active:boolean,
   style?:string,
   disabled?:boolean,
   icon?:string,
@@ -13,9 +13,24 @@ export default function Button({ text, link, active, style, disabled, icon, call
   return (
     <>
     {link === '' ? 
-      <span className={`button ${style} ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`} onClick={call}>{icon && icon!== '' ? <img src={icon} /> : null}{text}</span>
+      <span className={`button ${style} ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`} onClick={call}>{icon && icon!== '' ? 
+        <Image
+        src={icon}
+        alt="Description of the image"
+        layout="responsive"
+        width={100}
+        height={100}
+      />
+       : null}{text}</span>
     :
-      <Link href={link} className={`button ${style} ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`}>{icon && icon!== '' ? <img src={icon} /> : null} {text}</Link>
+      <Link href={link} className={`button ${style} ${active ? 'active' : ''} ${disabled ? 'disabled' : ''}`}>{icon && icon!== '' ? 
+        <Image
+        src={icon}
+        alt="Description of the image"
+        layout="responsive"
+        width={100}
+        height={100}
+      /> : null} {text}</Link>
     }
     </>
   );

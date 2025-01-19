@@ -2,7 +2,9 @@
 import { useState } from 'react';
 import Link from 'next/link';
 import Button from "@/components/button";
-export default function Support() {
+import AuthGuard from "@/components/AuthGuard";
+import Username from '@/components/Username';
+function Support() {
   const [showAll, setShowAll] = useState(false);
   const links = [
     { title: "Portfolio", description: "How to manage your investments portfolio", link: "" },
@@ -31,7 +33,7 @@ export default function Support() {
           <div className="container-in">
             <div className="col-12">
               <h1>Support
-                <div className="username fr"><span>J</span>John Carter</div>
+                <Username />
               </h1>
             </div>
           </div>
@@ -104,5 +106,12 @@ export default function Support() {
         </div>
       </div>
     </>
+  );
+}
+export default function SupportPage() {
+  return (
+    <AuthGuard>
+      <Support />
+    </AuthGuard>
   );
 }
